@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   def index
-    @messages = message.includes(:body)
+    # @messages = message.includes(:body)
   end
 
   def show
