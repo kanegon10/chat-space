@@ -41,10 +41,10 @@
     .form
       %form.new_message
         .input-box
-          %input{:placeholder => "type a message", :class => "input-box__text", :type => "text", :neme => "message[content]", :id => "message_content"}
+          %input{placeholder: 'type a message', class: "input-box__text", type: 'text', neme: 'message[content]', id: 'message_content'}
           %label.input-box__image               
             %i.fa.fa-image
-            %input{:class => "input-box__image__file", :type => "file", :name => "message[image]", :id => "message_image"} 
-        %input{:type => "submit", :name => "commit", :value => "Send", :class => "submit-btn"}  
+            %input{class: "input-box__image__file", type: 'file', name: 'message[image]', id: 'message_image'}
+        %input{ type: 'submit', name: 'commit', value: 'Send', class: "submit-btn"} 
           
             
