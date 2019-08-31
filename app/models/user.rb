@@ -1,6 +1,11 @@
 class User < ApplicationRecord
- has_many :group_users,foreign_key: :user_id
- has_many :groups,through: :group_users
- has_many :messages,foreign_key: :user_id
- validates :name, presence: true
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_many :group_users
+  has_many :groups,through: :group_users
+  has_many :messages
+  validates :name, presence: true
+
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 end

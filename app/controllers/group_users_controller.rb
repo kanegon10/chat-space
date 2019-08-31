@@ -1,7 +1,13 @@
 class GroupUsersController < ApplicationController
-  def index
+  def new
   end
 
-  def show
+  def create
+  end
+
+  def edit
+  end  
+
+  def update
   end
 end
