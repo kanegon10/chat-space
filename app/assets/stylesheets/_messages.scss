@@ -19,7 +19,6 @@ $gray :rgb(67,74,84);
   color: $white;
   font-size: 16px;
   font-weight: 100;
-  height: 24px;
   text-align: center;
   width: 100%;
 }  
@@ -29,7 +28,6 @@ $gray :rgb(67,74,84);
     color: $white;
     font-size: 16px;
     font-weight: 100;
-    height: 24px;
     text-align: center;
     width: 100%;   
   }
@@ -68,6 +66,14 @@ $gray :rgb(67,74,84);
           font-weight: bold;
           font-size: 16px;                   
         }
+          .header__name {
+            @include border_box;
+            color: $white;
+            font-weight: bold;
+            font-size: 16px;
+            padding-right: 150px;
+          }
+          
         &__menu {
           box-sizing: border-box;
           cursor: pointer;
@@ -122,31 +128,33 @@ $gray :rgb(67,74,84);
         height: 45px;
         margin-bottom: 40px;
         width: 260px;
+        text-decoration: none ;
         
-        &__group-name {
-          @include border_box;
-          color: $white;
-          cursor: pointer;          
-          font-size: 15px;
-          height: 23px;
-          margin-block-end: 5px;
-          margin-block-start: 0px;
-          margin-bottom: 5px;
-          width: 260px;
-        }
-          &__new-group {
-            text-align: center;
-            font-size: 36px;
-            line-height: 90px;
-          }    
-        &__latest-message {
-          @include border_box;
-          color: $white;
-          cursor: pointer;
-          font-size: 11px;
-          height: 17px;
-          width: 260px;
-        }
+            &__group-name {
+              @include border_box;
+              color: $white;
+              cursor: pointer;          
+              font-size: 15px;
+              height: 23px;
+              margin-block-end: 5px;
+              margin-block-start: 0px;
+              margin-bottom: 5px;
+              width: 260px;
+              text-decoration: none ;
+            }
+              &__new-group {
+                text-align: center;
+                font-size: 36px;
+                line-height: 90px;
+              }    
+            &__latest-message {
+              @include border_box;
+              color: $white;
+              cursor: pointer;
+              font-size: 11px;
+              height: 17px;
+              width: 260px;
+            }
           .edit-user {
             display: inline-block;
             width: 260px;
