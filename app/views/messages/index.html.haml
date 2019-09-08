@@ -3,6 +3,7 @@
   .notice    
 .wrapper
   .chat-side
+    = render 'shared/side_bar'
     .side-header
       .side-header__box
         %p.side-header__box__user-name 
@@ -16,40 +17,62 @@
           = link_to edit_user_path(current_user) do
             %i.fa.fa-cog
             
-    .groups
-      - current_user.groups.each do |group|
-      .group
-         = link_to group_messages_path(group) do         
-            %p.group__group-name
-              = group.name   
-            %p.group__latest-message
-              メッセージはまだありません。  
+    -# .groups
+    -#   - current_user.groups.each do |group|
+    -#   .group
+    -#      = link_to group_messages_path(group) do         
+    -#         %p.group__group-name
+    -#           = group.name   
+    -#         %p.group__latest-message
+    -#           メッセージはまだありません。  
   .chat-main
     .main-header
       .main-header__left-box
         %h2.main-header__left-box__current-group
-          test-group
+          = @group.name
         %ul.main-header__left-box__member-list
-          Member :
-          %li.main-header__left-box__member-list__member test-user            
+          Member : 
+          = current_user.name
+          %li.main-header__left-box__member-list__member           
         .main-header__edit-btn
           Edit   
     .messages
-      .message
-        .message__upper-info
-          %p.message__upper-info__talker
-            test-user
-          %p.message__upper-info__date
-            2019/08/11(sun)
-        %p.message__text
-          こんにちは！
+      = render @messages
+      -# .upper-message
+      -#   .upper-message__user-name
+          
+      -#     %p.message__upper-info__talker
+            
+      -#     .upper-message__date
+            
+          
+      -#   .lower-message
+          
+      -#     %p.lower-message__content            
+          
+          
     .form
-      %form.new_message
-        .input-box
-          %input{placeholder: 'type a message', class: "input-box__text", type: 'text', neme: 'message[content]', id: 'message_content'}
-          %label.input-box__image               
-            %i.fa.fa-image
-            %input{class: "input-box__image__file", type: 'file', name: 'message[image]', id: 'message_image'}
-        %input{ type: 'submit', name: 'commit', value: 'Send', class: "submit-btn"} 
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
+    
+    
+    
+    
+    
+    
+    
+    -# .form
+    -#   %form.new_message
+    -#     .input-box
+    -#       %input{placeholder: 'type a message', class: "input-box__text", type: 'text', neme: 'message[content]', id: 'message_content'}
+    -#       %label.input-box__image               
+    -#         %i.fa.fa-image
+    -#         %input{class: "input-box__image__file", type: 'file', name: 'message[image]', id: 'message_image'}
+    -#     %input{ type: 'submit', name: 'commit', value: 'Send', class: "submit-btn"} 
           
             
