@@ -13,6 +13,9 @@ $gray :rgb(67,74,84);
          font-stretch: 100%;
          line-height: 16px;
          text-rendering: auto;
+         position: relative;
+         right: 3.5px;
+         padding-left: 0.4px;
 }
 .flash-box {
   @include border_box;
@@ -71,7 +74,7 @@ $gray :rgb(67,74,84);
             color: $white;
             font-weight: bold;
             font-size: 16px;
-            padding-right: 150px;
+            padding-right: 185px;
           }
           
         &__menu {
@@ -111,56 +114,56 @@ $gray :rgb(67,74,84);
       }  
     }        
   }
-    .groups {      
-      @include border_box;
-      background-color: #2f3e51;
-      height: 689px;
-      padding-bottom: 0px;
-      padding-left: 20px;
-      padding-right: 20px;
-      padding-top: 20px;
-      width: 300px;
+    // .groups {      
+    //   @include border_box;
+    //   background-color: #2f3e51;
+    //   height: 689px;
+    //   padding-bottom: 0px;
+    //   padding-left: 20px;
+    //   padding-right: 20px;
+    //   padding-top: 20px;
+    //   width: 300px;
 
-      .group {
-        @include border_box;
-        color: $white;
-        cursor: pointer;
-        height: 45px;
-        margin-bottom: 40px;
-        width: 260px;
-        text-decoration: none ;
+    //   .group {
+    //     @include border_box;
+    //     color: $white;
+    //     cursor: pointer;
+    //     height: 45px;
+    //     margin-bottom: 40px;
+    //     width: 260px;
+    //     text-decoration: none ;
         
-            &__group-name {
-              @include border_box;
-              color: $white;
-              cursor: pointer;          
-              font-size: 15px;
-              height: 23px;
-              margin-block-end: 5px;
-              margin-block-start: 0px;
-              margin-bottom: 5px;
-              width: 260px;
-              text-decoration: none ;
-            }
-              &__new-group {
-                text-align: center;
-                font-size: 36px;
-                line-height: 90px;
-              }    
-            &__latest-message {
-              @include border_box;
-              color: $white;
-              cursor: pointer;
-              font-size: 11px;
-              height: 17px;
-              width: 260px;
-            }
-          .edit-user {
-            display: inline-block;
-            width: 260px;
-          }                   
-      }
-    }
+    //         &__group-name {
+    //           @include border_box;
+    //           color: $white;
+    //           cursor: pointer;          
+    //           font-size: 15px;
+    //           height: 23px;
+    //           margin-block-end: 5px;
+    //           margin-block-start: 0px;
+    //           margin-bottom: 5px;
+    //           width: 260px;
+    //           text-decoration: none ;
+    //         }
+    //           &__new-group {
+    //             text-align: center;
+    //             font-size: 36px;
+    //             line-height: 90px;
+    //           }    
+    //         &__latest-message {
+    //           @include border_box;
+    //           color: $white;
+    //           cursor: pointer;
+    //           font-size: 11px;
+    //           height: 17px;
+    //           width: 260px;
+    //         }
+    //       .edit-user {
+    //         display: inline-block;
+    //         width: 260px;
+    //       }                   
+    //   }
+    // }
   .chat-main {
     @include border_box;
     color: $off_white;
@@ -249,40 +252,42 @@ $gray :rgb(67,74,84);
       @include border_box;
       background-color: $off_white;      
       height: 600px;
-      overflow-x: hidden;
-      overflow-y: hidden;
+      overflow-x: scroll;
+      overflow-y: scroll;
       padding: 46px 40px;
-      width: 100%; 
+      width: 100%;
       .message {
         @include border_box;
-        padding-bottom: 40px;       
-        &__upper-info {
-          box-sizing: border-box;
-          display: flex;
-          height: 24px;
-          margin-bottom: 10px;
-          width: 390px;
-        
-          &__talker {
+        padding-bottom: 40px;
+        height: auto;
+        width: auto;
+        .upper-message {
+          @include border_box;
+          background-color: $off_white;
+          color: $black;
+          padding-bottom: 40px;
+
+          &__user-name {
             @include border_box;
             color: #434A54;
             font-size: 16px;
             font-weight: bold;
-            height: 24px;
-          }
+            height: 24px; 
+          }          
           &__date {
             @include border_box;
+            float: left;
             color: #999999;
             height: 24px;
             font-size: 12px;
-            margin-block-end: 0px;
-            margin-block-start: 0px;
-            margin-inline-end: 0px;
             margin-inline-start: 10px;
             margin-left: 10px;
-          }
-        }              
-        &__text {
+            position: relative;
+            left: 40px;
+            top: -25px;
+          }             
+        }
+        .lower-message {
           @include border_box;
           color: #434A54;
           font-size: 14px;
@@ -290,146 +295,72 @@ $gray :rgb(67,74,84);
           margin-block-end: 10px;
           margin-block-start: 0px;
           margin-bottom: 10px;
-        }
-      }    
+            &__content {
+              @include border_box;
+              color: #434A54;
+              font-size: 14px;
+              height: 21px;
+              margin-block-end: 10px;
+              margin-block-start: 0px;
+              margin-bottom: 10px;
+            }
+            &__image {
+
+            }     
+        }   
+      }
     }
     .form {
-      @include border_box; 
-      background-color: rgb(221,221,221);      
-      height:90px;
-      padding: 20px 40px;
-      width: 100%;
-      justify-content: space-between;      
-      .new_message {
-        box-sizing: border-box;
-        display: flex;
-        height: 50px;       
+      background-color: #DDDDDD;
+      box-sizing: border-box;
+      height: 90px;
+      padding: 20px 50px 20px 40px;
+      
+      .form__message {
+        border: none;
+        float: left;
+        height: 50px;
+        width: calc(100% - 150px);
+        padding-left: 10px;
+        padding-right: 40px;
       }
-        .input-box {
-          @include border_box;
-          background-color: $off_white;          
-          height:50px;
-          position: relative;
-          width: 100%;
-          &__text {
-            background-color: $white;            
-            cursor: text;
-            border-image-repeat: stretch;
-            border-image-slice: 100%;
-            border-image-source: none;            
-            border-image-width: 1;
-            border-bottom-color: $gray;
-            border-bottom-width: 0px;
-            border-left-color: $gray;
-            border-left-style: none;
-            border-left-width: 0px;
-            border-right-color: $gray;
-            border-right-style: none;
-            border-right-width: 0px;
-            border-top-color: $gray;
-            border-top-style: none;
-            border-top-width: 0px;
-            display: inline-block;
-            font-size: 16px;
-            font-weight: 400;
-            height:50px;
-            padding-left: 10px;
-            padding-right: 40px;
-            text-align: start;
-            text-rendering: auto;
-            writing-mode: horizontal-tb;
-
-          }
-          &__image {
-            @include border_box;
+      .form__mask {
+        background-color: $white;
+        float: left;
+        height: 50px;
+        padding-right: 10px;
+        .form__mask__image {
+          font-size: 20px;
+          line-height: 50px;          
+        }
+          .icon {
+            box-sizing: border-box;
             cursor: pointer;
-            height: 30px;
-            width: 22.3px;
-            position: absolute;
-            font-size: 20px;                    
-            right: 10px;
-            top: 10px;
-            .fa-image {
-              color: $black;
-              display: inline-block;
-              font-stretch: 100%;
-              font-weight: 400;
-              height: 20px;
-              line-height: 20.8px;
-              text-rendering: auto;             
-            }
-          
-            &__file {
-              align-items: baseline; 
-              border-bottom-color: $black;             
-              border-bottom-style: none;
-              border-bottom-width: 0px;
-              border-image-outset: 0px;
-              border-image-repeat: stretch;
-              border-image-slice: 100%;
-              border-image-source: none;
-              border-image-width: 1;
-              border-left-color: $black;
-              border-left-style: none;
-              border-left-width: 0px;
-              border-right-color: $black;
-              border-right-style: none;
-              border-right-width: 0px;
-              border-top-color: $black;
-              border-top-style: none;
-              border-top-width: 0px;
-              box-sizing: border-box;
-              cursor: default;
-              display: none;
-              font-size: 20px;
-              font-stretch: 100%;
-              font-style: normal;
-              font-variant-caps: normal;
-              font-variant-east-asian: normal;
-              font-weight: 400px;
-              text-align: start;
-              text-rendering: auto;
-              writing-mode: horizontal-tb;              
-            }
+            display: inline-block;
+            font-size: 20.8px;
+            font-stretch: 100%;
+            color: $black;
+            line-height: 20.8px;
+            text-rendering: auto;
           }
-        }
-        .submit-btn {
-          align-items   : flex-start;
-          box-sizing    : border-box;
-          border-bottom-style: solid;
-          border-bottom-color: rgb(186,186,186);
-          border-bottom-width: 1px;
-          border-image-outset: 0px;
-          border-image-repeat: stretch;
-          border-image-slice: 100%;
-          border-image-source: none;
-          border-image-width: 1;
-          border-left-color: rgb(209,209,209);
-          border-left-style: solid;
-          border-left-width: 1px;
-          border-right-color: rgb(209,209,209);
-          border-right-style: solid;
-          border-right-width: 1px;
-          border-top-color: rgb(216,216,216);
-          border-top-style: solid;
-          border-top-width: 1px;
-          display       : inline-block;
-          font-size     : inherit;
-          font-stretch  : 100%;
-          font-weight   : inherit;         
-          text-align    : center;
-          text-indent: 0px;
-          text-rendering: auto;
-          height        : 50px;      
-          width         : 100px;      
-          cursor        : pointer;     
-          padding       : 0px 30px; 
-          margin-left   : 15px;  
-          background    : $blue;     
-          color         : $white; 
-          white-space: pre;                        
-        }
-    }
+          .hidden {
+            display: none;
+          }
+      }
+      .form__submit {
+        background-color: $light_blue;
+        border: none;
+        color: $white;
+        float: right;
+        font-size: 16px;
+        height: 50px;
+        margin-left: 15px;
+        padding: 0 30px;  
+        position: relative;
+        top: -50px;
+        left: 50px;           
+      }
+    }    
   }
 }
 
