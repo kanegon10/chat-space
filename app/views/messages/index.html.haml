@@ -15,16 +15,7 @@
             %i.fa.fa-edit 
           %li.side-header__box__menu__edit-user
           = link_to edit_user_path(current_user) do
-            %i.fa.fa-cog
-            
-    -# .groups
-    -#   - current_user.groups.each do |group|
-    -#   .group
-    -#      = link_to group_messages_path(group) do         
-    -#         %p.group__group-name
-    -#           = group.name   
-    -#         %p.group__latest-message
-    -#           メッセージはまだありません。  
+            %i.fa.fa-cog              
   .chat-main
     .main-header
       .main-header__left-box
@@ -37,20 +28,8 @@
         .main-header__edit-btn
           Edit   
     .messages
-      = render @messages
-      -# .upper-message
-      -#   .upper-message__user-name
-          
-      -#     %p.message__upper-info__talker
-            
-      -#     .upper-message__date
-            
-          
-      -#   .lower-message
-          
-      -#     %p.lower-message__content            
-          
-          
+      = render @messages      
+                    
     .form
       = form_for [@group, @message] do |f|
         = f.text_field :content, class: 'form__message', placeholder: 'type a message'
@@ -59,20 +38,3 @@
             = fa_icon 'picture-o', class: 'icon'
             = f.file_field :image, class: 'hidden'
         = f.submit 'Send', class: 'form__submit'
-    
-    
-    
-    
-    
-    
-    
-    -# .form
-    -#   %form.new_message
-    -#     .input-box
-    -#       %input{placeholder: 'type a message', class: "input-box__text", type: 'text', neme: 'message[content]', id: 'message_content'}
-    -#       %label.input-box__image               
-    -#         %i.fa.fa-image
-    -#         %input{class: "input-box__image__file", type: 'file', name: 'message[image]', id: 'message_image'}
-    -#     %input{ type: 'submit', name: 'commit', value: 'Send', class: "submit-btn"} 
-          
-            
