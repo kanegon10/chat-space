@@ -291,22 +291,23 @@ $gray :rgb(67,74,84);
           @include border_box;
           color: #434A54;
           font-size: 14px;
-          height: 21px;
+          
           margin-block-end: 10px;
           margin-block-start: 0px;
           margin-bottom: 10px;
-            &__content {
-              @include border_box;
-              color: #434A54;
-              font-size: 14px;
-              height: 21px;
-              margin-block-end: 10px;
-              margin-block-start: 0px;
-              margin-bottom: 10px;
-            }
-            &__image {
-
-            }     
+          &__content {
+            @include border_box;
+            color: #434A54;
+            font-size: 14px;
+            height: 21px;
+            margin-block-end: 10px;
+            margin-block-start: 0px;
+            margin-bottom: 10px;
+          }
+          &__image {
+            @include border_box;
+            margin-top: 10px;            
+          }     
         }   
       }
     }

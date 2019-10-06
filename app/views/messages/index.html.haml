@@ -4,18 +4,18 @@
 .wrapper
   .chat-side
     = render 'shared/side_bar'
-    .side-header
-      .side-header__box
-        %p.side-header__box__user-name 
-          %h3.header__name
-            = current_user.name
-        %ul.side-header__box__menu
-          %li.side-header__box__menu__new-group
-          = link_to new_group_path do
-            %i.fa.fa-edit 
-          %li.side-header__box__menu__edit-user
-          = link_to edit_user_path(current_user) do
-            %i.fa.fa-cog              
+    -# .side-header
+    -#   .side-header__box
+    -#     %p.side-header__box__user-name 
+    -#       %h3.header__name
+    -#         = current_user.name
+    -#     %ul.side-header__box__menu
+    -#       %li.side-header__box__menu__new-group
+    -#       = link_to new_group_path do
+    -#         %i.fa.fa-edit 
+    -#       %li.side-header__box__menu__edit-user
+    -#       = link_to edit_user_path(current_user) do
+    -#         %i.fa.fa-cog              
   .chat-main
     .main-header
       .main-header__left-box
@@ -32,9 +32,11 @@
                     
     .form
       = form_for [@group, @message] do |f|
-        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        = f.text_field :content, class: 'form__message', id: 'new_message', placeholder: 'type a message'
         .form__mask
           = f.label :image, class: 'form__mask__image' do
             = fa_icon 'picture-o', class: 'icon'
             = f.file_field :image, class: 'hidden'
         = f.submit 'Send', class: 'form__submit'
+
+      
