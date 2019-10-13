@@ -22,7 +22,13 @@ $(function(){
                 </div>`
     return html;
   }
-  
+  function scrollBottom(){
+    var target = $('.message').last();
+    var position = target.offset().top + $('.messages').scrollTop();
+    $('.messages').animate({
+      scrollTop: position
+    }, 300, 'swing');
+  }
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var message = new FormData(this);
@@ -35,28 +41,17 @@ $(function(){
       processData: false,
       contentType: false
     })
-    .done(function(data) {
-      function scrollBottom(){
-        var target = $('.message').last();
-        var position = target.offset().top + $('.messages').scrollTop();
-        $('.messages').animate({
-          scrollTop: position
-        }, 300, 'swing');
-      }
+    .done(function(data) {      
       var html = buildHTML(data);
       $('.messages').append(html);
-      $('#message_content').val('');
+      $('#new_message')[0].reset();
+      $('.form__submit').prop('disabled', false)
       scrollBottom();
     })
     .fail(function(){
-      alert("メッセージを入力してください。");
-    })
-    .fail(function(){
+      alert("メッセージを入力してください。"); 
       alert('error');
       $('.form__submit').prop('disabled', false)
     })
-    .always(function(){
-      $('.form__submit').prop('disabled', false)
-    });
   })
 })
