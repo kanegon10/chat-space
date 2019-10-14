@@ -269,6 +269,7 @@ $gray :rgb(67,74,84);
 
           &__user-name {
             @include border_box;
+            float: left;
             color: #434A54;
             font-size: 16px;
             font-weight: bold;
@@ -278,35 +279,33 @@ $gray :rgb(67,74,84);
             @include border_box;
             float: left;
             color: #999999;
-            height: 24px;
-            font-size: 12px;
-            margin-inline-start: 10px;
+            font-size: 12px;           
             margin-left: 10px;
-            position: relative;
-            left: 40px;
-            top: -25px;
+            position: relative;    
+            top: 5px;
           }             
         }
         .lower-message {
           @include border_box;
           color: #434A54;
           font-size: 14px;
-          height: 21px;
+          
           margin-block-end: 10px;
           margin-block-start: 0px;
           margin-bottom: 10px;
-            &__content {
-              @include border_box;
-              color: #434A54;
-              font-size: 14px;
-              height: 21px;
-              margin-block-end: 10px;
-              margin-block-start: 0px;
-              margin-bottom: 10px;
-            }
-            &__image {
-
-            }     
+          &__content {
+            @include border_box;
+            color: #434A54;
+            font-size: 14px;
+            height: 21px;
+            margin-block-end: 10px;
+            margin-block-start: 0px;
+            margin-bottom: 10px;
+          }
+          &__image {
+            @include border_box;
+            margin-top: 10px;            
+          }     
         }   
       }
     }
